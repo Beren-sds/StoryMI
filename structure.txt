@@ -1,0 +1,80 @@
+.
+├── data
+│   ├── DSM5-TR
+│   │   ├── Level1
+│   │   └── Level2
+│   ├── MI
+│   │   ├── misc3.pdf
+│   │   └── miti4.pdf
+│   └── results
+│       ├── background_stories
+│       ├── background_story
+│       ├── conversations
+│       ├── evaluation_results
+│       ├── figures
+│       ├── questionnaires
+│       ├── results_all
+│       └── sessions
+├── human_anno
+│   ├── annotator.html
+│   ├── correlation_dimension_level.csv
+│   ├── correlation_model_level.csv
+│   ├── csv
+│   │   ├── annotations_gpt5_annotator1.csv
+│   │   ├── annotations_gpt5_annotator2.csv
+│   │   ├── human_annotation_1.csv
+│   │   └── human_annotation_2.csv
+│   ├── data.json
+│   └── gpt5_nano_sessions.json
+├── README.md
+├── requirements.txt
+├── result_analysis
+│   ├── auto-metrics
+│   ├── Human
+│   │   ├── annotations_gpt5_merged.csv
+│   │   └── Human_evaluation_summary_stats.csv
+│   └── LLM-based
+├── src
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-310.pyc
+│   ├── dialogue
+│   │   ├── __init__.py
+│   │   ├── client.py
+│   │   ├── dialogue_system.py
+│   │   ├── dialogue_systemby1.py
+│   │   ├── identifier.py
+│   │   ├── main.py
+│   │   ├── mi_code.json
+│   │   ├── run_ablation_experiments.py
+│   │   └── therapist.py
+│   ├── evaluate
+│   │   ├── __init__.py
+│   │   ├── completion.py
+│   │   ├── domain.py
+│   │   ├── evaluate_ablation_conditions.py
+│   │   ├── evaluate_gpt5_nano.py
+│   │   ├── evaluate_llm_judge_gpt5.py
+│   │   ├── evaluate_mi_metrics.py
+│   │   ├── evaluation_rubrics.json
+│   │   ├── main.py
+│   │   ├── perplexity.py
+│   │   ├── role_adherence.py
+│   │   └── text_process.py
+│   ├── questionnaire
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   ├── backgroundstory.json
+│   │   ├── config.py
+│   │   ├── main.py
+│   │   ├── questionnaire_generation.py
+│   │   ├── schemas.py
+│   │   └── story_generation.py
+│   └── utils
+│       ├── __init__.py
+│       ├── __pycache__
+│       ├── llm.py
+│       └── retriever.py
+└── structure.txt
+
+29 directories, 49 files
