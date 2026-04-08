@@ -1,0 +1,39 @@
+======================================================================
+SELF-BIAS ANALYSIS: GPT-5-nano as Judge vs GLM-5 as Judge
+on GPT-5-nano Generated Dialogues
+======================================================================
+
+Number of paired sessions: 100
+
+Overall mean scores on GPT-5-nano dialogues:
+  GPT-5-nano judge mean: 4.4467
+  GLM-5 judge mean:      4.6917
+  Difference (GPT - GLM5): -0.2450
+
+  Paired t-test: t=-6.0271, p=0.000000
+  Wilcoxon signed-rank: W=410.0000, p=0.000000
+
+INTERPRETATION: GLM-5 judge scores are significantly higher.
+This does NOT support self-bias; GPT-5-nano may even be self-critical.
+
+Per-dimension breakdown:
+Dimension              GPT mean  GLM5 mean     Diff        t          p
+----------------------------------------------------------------------
+Coherence                4.4800     4.9300  -0.4500  -8.3505   0.000000 *
+Depth                    3.7400     3.5500  +0.1900   3.2716   0.001472 *
+Progress                 4.4600     4.9400  -0.4800  -9.1981   0.000000 *
+Naturalness              4.3900     4.8100  -0.4200  -6.7473   0.000000 *
+Empathy                  4.9000     4.9800  -0.0800  -2.3617   0.020151 *
+MI Alignment             4.7100     4.9400  -0.2300  -4.3474   0.000033 *
+
+======================================================================
+CROSS-MODEL COMPARISON: GPT vs GLM5 Judge Mean Scores
+======================================================================
+Model                  GPT mean  GLM5 mean     Diff     n
+-------------------------------------------------------
+gpt-5-nano               4.4467     4.6917  -0.2450   100
+llama3.1:8b              3.9267     4.4917  -0.5650   100
+phi4:14b                 4.3117     4.7817  -0.4700   100
+openchat:7b              3.1983     2.8250  +0.3733   100
+gemma:7b                 2.8183     2.5917  +0.2267   100
+qwen2.5:7b               3.9383     4.1650  -0.2267   100

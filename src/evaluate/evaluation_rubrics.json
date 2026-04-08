@@ -1,0 +1,77 @@
+{
+    "Coherence": {
+        "role": "conversation",
+        "reference": "no",
+        "question": "Is the conversation logically structured, with smooth transitions between steps?",
+        "rubric": [
+            "5 (Excellent): The conversation is well-structured, with smooth transitions and a logical flow from one step to the next.",
+            "4 (Good): The conversation is mostly coherent, with only minor inconsistencies or abrupt transitions.",
+            "3 (Average): The conversation has some structural issues, with occasional jumps or awkward transitions.",
+            "2 (Poor): The conversation lacks logical flow, with multiple abrupt or confusing transitions.",
+            "1 (Very Poor): The conversation is highly disorganized, making it difficult to follow the sequence of steps."
+        ]
+    },
+    "Depth": {
+        "role": "conversation",
+        "reference": "no",
+        "question": "To what extent does the dialogue move beyond surface remarks to examine underlying emotions, cognitions, life history, and relational patterns—thereby demonstrating therapeutic depth?",
+        "rubric": [
+            "5 (Excellent): The conversation systematically peels back multiple layers—current emotions, bodily sensations, core beliefs, and personal/relational history.",
+            "4 (Good): Key emotions and several cognitive or historical aspects are explored. The therapist probes in depth but leaves a few noticeable gaps. The client gains partial insight, yet one or two important themes remain under-developed.",
+            "3 (Average): The conversation identifies main emotions or thoughts but lacks consistent follow-up. Background or relationship context is mentioned only briefly. Insights stay shallow, often limited to description plus basic empathy.",
+            "2 (Poor): Discussion remains at the level of events or generic emotion labels (e.g., “I’m anxious”). There is little inquiry into causes, bodily sensations, or impact. Depth is minimal.",
+            "1 (Very Poor): The exchange is essentially small talk or a list of facts. No meaningful exploration of emotion, cognition, or background occurs, and the therapist offers no substantive probing."
+        ]
+    },
+
+    "Progress": {
+        "role": "conversation",
+        "reference": "no",
+        "question": "Does the conversation effectively move forward in a logical manner?",
+        "rubric": [
+            "5 (Excellent): The conversation progresses efficiently, covering each step logically and without unnecessary repetition.",
+            "4 (Good): The conversation generally moves forward well, with only minor delays or repetitions.",
+            "3 (Average): The conversation progresses but sometimes gets stuck or moves inefficiently.",
+            "2 (Poor): The conversation struggles to move forward, often repeating steps or getting sidetracked.",
+            "1 (Very Poor): The conversation lacks clear progress, frequently revisiting previous steps or failing to complete the tutorial."
+        ]
+    },
+    "Naturalness": {
+        "role": "conversation",
+        "reference": "no",
+        "question": "Does the conversation feel fluid and human-like, avoiding robotic or overly scripted responses?",
+        "rubric": [
+            "5 (Excellent): The conversation feels natural and human-like, with engaging and varied responses.",
+            "4 (Good): The conversation is mostly natural, but some responses feel slightly mechanical or repetitive.",
+            "3 (Average): The conversation has a mix of natural and robotic responses, with some unnatural phrasing.",
+            "2 (Poor): The conversation often feels artificial or scripted, with little variation in responses.",
+            "1 (Very Poor): The conversation is highly robotic or formulaic, making it feel unnatural and disengaging."
+        ]
+    },
+    "Empathy": {
+        "role": "therapist",
+        "reference": "no",
+        "question": "Does the therapist convey accurate understanding and acceptance of the client's perspective?",
+        "rubric": [
+            "5 (Excellent): Precisely identifies and reflects feelings, conveying deep empathy and understanding.",
+            "4 (Good): Clearly reflects emotions and shows empathy but lacks some nuance.",
+            "3 (Average): Briefly acknowledges emotion without deeper exploration or meaning expansion.",
+            "2 (Poor): Only surface‑level response or misreads the emotion.",
+            "1 (Very Poor): No empathy shown, or the emotion is dismissed or ignored."
+        ]
+    },
+    "Adherence": {
+        "role": "therapist",
+        "reference": "no",
+        "question": "Does the therapist align with the predicted Motivational Interviewing (MI) skills?",
+        "rubric": [
+                "5 – Clearly applies the skill with precision and directly advances the client's change process.",
+                "4 – Mostly applies the skill with only minor wording issues or missing nuance.",
+                "3 – Partial demonstration; noticeable gaps or mixed elements.",
+                "2 – Minimal or unclear use of the skill; some non‑MI content present.",
+                "1 – No MI‑consistent skill evident, or the response counters MI principles."              
+        ]
+    }
+   
+}
+

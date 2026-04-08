@@ -1,0 +1,34 @@
+{   
+    "mi_code_definition": {
+        "therapist": {
+            "reflection": {
+                "definition": "reflection is a statement made by the therapist that captures and mirrors back the essence of what the client has said or expressed."
+            },
+            
+            "question": {
+                "definition": "question is made by the therapist to gain more clarity or to explore the client’s perspective, feelings, thoughts, or experiences.",
+                "subtype": {
+                    "open_question": "therapist asks a question that allows for elaboration.",
+                    "closed_question": "therapist asks a question that invites a yes/no or brief answer."
+                }
+            },
+            "therapist_input": {
+                "definition": "therapist_input is any other therapist utterance that is not codable as 'question' or 'reflection'",
+                "subtype": {
+                    "information": "therapist provides factual or explanatory information.",
+                    "advice": "therapist gives suggestions or recommendations.",
+                    "giving_options": "therapist presents different choices or courses of action.",
+                    "negotiation_goal_setting": "therapist engages in collaborative planning or goal-setting."
+                }
+            },
+            "other": {
+                "definition": "any other therapist utterance that does not fit into the above categories."
+            }
+        },
+        "client": {
+            "change": "client language that supports positive behavior change and reflects motivation aligned with their values and goals.",
+            "sustain": "client language that expresses resistance to change and preference to maintain the status quo.",
+            "neutral": "client language that does not clearly indicate a tendency toward or against change."
+        }}
+
+}

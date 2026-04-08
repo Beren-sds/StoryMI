@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Conversation Annotator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 80px; max-width: 3000px; }
+    .block { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; }
+    .steps pre { background: #f9f9f9; padding: 10px; white-space: pre-wrap; }
+    textarea { width: 100%; height: 80px; }
+    select { font-size: 16px; }
+    button { margin-top: 10px; padding: 8px 15px; font-size: 16px; }
+    .block h3 { margin-top: 0; }
+    
+    /* Enhanced conversation styling */
+    .conversation { 
+      background: #f9f9f9; 
+      padding: 10px; 
+      border-radius: 8px;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+    .message {
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 8px;
+      position: relative;
+      clear: both;
+    }
+    .therapist {
+      background-color: #e3f2fd;
+      border-left: 4px solid #2196F3;
+    }
+    .client {
+      background-color: #f5f5f5;
+      border-left: 4px solid #9e9e9e;
+    }
+    .speaker-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .therapist .speaker-label {
+      color: #1565c0;
+    }
+    .client .speaker-label {
+      color: #616161;
+    }
+    .message-content {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .mi-code {
+      display: inline-block;
+      margin-top: 8px;
+      font-style: italic;
+      padding: 4px 8px;
+      background-color: #fff3e0;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #e65100;
+      border: 1px dashed #ffcc80;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Conversation Human Evaluation</h2>
+<h3>Guideline for Annotators</h3>
+
+<p><strong>Your Task:</strong> You are evaluating the therapeutic quality of a psychotherapy dialogue between a <em>Therapist</em> and a <em>Client</em>.<br/>
+
+<ul>
+  <li><strong>Therapist</strong>: Uses MI counseling skills (e.g., reflections, open questions etc.) to help the client explore and resolve ambivalence.</li>
+  <li><strong>Client</strong>: Shares thoughts, feelings, and experiences.</li>
+</ul>
+
+<strong>Evaluation Criteria. Score ranges from 1 (Very Poor) to 5 (Excellent).</strong>
+<ul>
+  <li><strong>Coherence (Conversation)</strong>:Is the conversation logically structured, with smooth transitions between steps?
+    Look for logical order, no abrupt topic jumps, smooth flow.
+  </li>
+  <li><strong>Depth (Conversation)</strong>: Does the conversation go beyond surface-level discussion and explore concepts in sufficient detail? 
+    Consider how deeply both roles explore the topic.
+  </li>
+  <li><strong>Progress (Conversation)</strong>: Does the conversation effectively move forward through the tutorial steps in a logical manner?
+    Check if each turn moves things forward rather than stagnating or repeating.
+  </li>
+  <li><strong>Naturalness (Conversation)</strong>: Does the conversation feel fluid and human-like, avoiding robotic or overly scripted responses? 
+    Look for a natural tone, varied phrasing, and engaging dialogue.
+  </li>
+  <li><strong>Empathy (Therpiast)</strong>: Does the therapist convey accurate understanding and acceptance of the client's perspective?
+  </li>
+  <li><strong>MI Alignment (Therapist)</strong>: How well does the therapist adhere to Motivational Interviewing principles?</li>
+  <li><strong>MI Alignment (Client)</strong>: How realistically does the client respond according to MI principles?</li>
+</ul>
+
+<div style="background-color: #f3f3f3; padding: 15px 20px; border-radius: 8px; margin: 40px 100px">
+  <h3>MI Code Definitions</h3>
+  <h4>Therapist Codes</h4>
+  <ul>
+    <li>
+      <strong>Reflection:</strong>
+      <span>Reflection is a statement made by the therapist that captures and mirrors back the essence of what the client has said or expressed.</span>
+    </li>
+    <li>
+    <strong>Question:</strong>
+    <span>Made by the therapist to gain more clarity or to explore the client’s perspective, feelings, thoughts, or experiences.</span>
+      <ul>
+        <li><em>Open Question:</em> Therapist asks a question that allows for elaboration.</li>
+        <li><em>Closed Question:</em> Therapist asks a question that invites a yes/no or brief answer.</li>
+      </ul>
+    </li>
+      <li>
+    <strong>Therapist Input:</strong>
+    <span>Any other therapist utterance that is not codable as 'question' or 'reflection'.</span>
+    <ul>
+      <li><em>Information:</em> Therapist provides factual or explanatory information.</li>
+      <li><em>Advice:</em> Therapist gives suggestions or recommendations.</li>
+      <li><em>Giving Options:</em> Therapist presents different choices or courses of action.</li>
+      <li><em>Negotiation / Goal-Setting:</em> Therapist engages in collaborative planning or goal-setting.</li>
+    </ul>
+  </li>
+  </ul>
+  <h4>Client Codes</h4>
+  <ul>
+    <li>
+      <strong>Change Talk:</strong>
+      <span>Client language that supports positive behavior change and reflects motivation aligned with their values and goals.</span>
+    </li>
+    <li>
+      <strong>Sustain Talk:</strong>
+      <span>Client language that expresses resistance to change and preference to maintain the status quo.</span>
+    </li>
+    <li>
+      <strong>Neutral:</strong>
+      <span>Client language that does not clearly indicate a tendency toward or against change.</span>
+    </li>
+  </ul>
+</div>
+
+<strong>Key Steps:</strong>
+<ul>
+  <li>Upload a josn file to load data samples.</li>
+  <li>Read the MI code definitions and understand it.</li>
+  <li>Read the full conversation carefully.</li>
+  <li>Score using all criteria.</li>
+  <li>Click “Download CSV” when done, save it in format "SourcefileName_AnnotatorName.csv".</li>
+</ul>
+
+<strong>Note:</strong>
+<ul>
+  <li>If you cannot finish all annocations by one time, please record the number of tutorial and the sample of sample to make sure you can finish all the annocations by multiple times / files. </li>
+  <li>Use the provided rubrics. Each criterion has a 1–5 scale. Please reference the rubric descriptions when scoring.</li>
+  <li>Be objective. Focus on what’s actually present in the conversation. Avoid making assumptions.</li>
+  <li>Leave comments (optional but helpful). If something stands out (positively or negatively), briefly note it.</li>
+</ul>
+</p>
+
+<h3>Upload a JSON file to begin annotating:</h3>
+<p style="margin-bottom: 10px;">
+  For the GPT-5-nano study, generate <code>gpt5_nano_sessions.json</code> via
+  <code>python human_anno/data_process.py --models gpt-5-nano --output human_anno/gpt5_nano_sessions.json</code>
+  and then load it using the quick action below. Other models can still be annotated by uploading their JSON files.
+</p>
+<input type="file" id="jsonInput" accept=".json">
+<button id="loadGptBtn">Load GPT-5-nano dataset</button>
+<button onclick="localStorage.removeItem('savedRatings'); location.reload();">Clear All Saved Ratings</button>
+
+<div id="controlPanel" style="margin: 20px 0; display: none;">
+  <label for="modelSelector" style="margin-right: 10px; font-weight: bold;">Filter by Model:</label>
+  <select id="modelSelector" style="padding: 5px; font-size: 16px; min-width: 200px;">
+    <option value="all">All Models</option>
+  </select>
+  <span id="conversationCount" style="margin-left: 20px; font-style: italic;"></span>
+</div>
+
+<div id="annotationArea"></div>
+<button id="downloadBtn" style="display:none;">Download CSV</button>
+
+<script>
+  let data = [];
+  let annotations = [];
+  
+  const metrics = [
+    "Coherence: Is the dialogue logically structured with smooth transitions?",
+    "Depth: Does the conversation explore issues beyond surface level?",
+    "Progress: Does the dialogue move toward therapeutic goals?",
+    "Naturalness: Does the exchange feel fluid and human‑like?",
+    "Empathy: Does the therapist convey accurate understanding and acceptance of the client’s perspective?",
+    "MI Alignment (Therapist): How well does the therapist adhere to Motivational Interviewing principles?",
+    "MI Alignment (Client): How realistically does the client respond according to MI principles?"
+  ];
+
+  const metricsIds = [
+    "coherence", "depth", "progress",
+    "naturalness", "empathy", "mi_alignment_therapist", "mi_alignment_client"
+  ];
+
+  document.getElementById("loadGptBtn").addEventListener("click", function() {
+    loadDatasetFromPath("gpt5_nano_sessions.json");
+  });
+
+  document.getElementById("jsonInput").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+  
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      data = JSON.parse(e.target.result);
+      renderAnnotations(data);
+    };
+    reader.readAsText(file);
+  });
+  
+  // Add event listener for model selector
+  document.getElementById("modelSelector").addEventListener("change", function() {
+    renderAnnotations(data, this.value);
+  });
+  
+  function loadDatasetFromPath(path) {
+    fetch(path)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} – ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(json => {
+        data = json;
+        renderAnnotations(data);
+      })
+      .catch(err => {
+        alert(`Unable to load dataset from ${path}. Ensure the file exists next to annotator.html.\n\n${err.message}`);
+      });
+  }
+
+  function setupModelSelector(models) {
+    const modelSelector = document.getElementById("modelSelector");
+    const existing = Array.from(modelSelector.options).slice(1).map(opt => opt.value);
+    const same =
+      existing.length === models.length &&
+      existing.every((value, idx) => value === models[idx]);
+    if (!same) {
+      while (modelSelector.options.length > 1) {
+        modelSelector.remove(1);
+      }
+      models.forEach(model => {
+        const option = document.createElement("option");
+        option.value = model;
+        option.textContent = model;
+        modelSelector.appendChild(option);
+      });
+      modelSelector.value = "all";
+    }
+  }
+
+  function renderAnnotations(data, selectedModel = "all") {
+    const area = document.getElementById("annotationArea");
+    area.innerHTML = "";
+    
+    setupModelSelector(Object.keys(data));
+    
+    // Show control panel
+    document.getElementById("controlPanel").style.display = "block";
+    
+    // Count visible conversations
+    let visibleCount = 0;
+    
+    Object.entries(data).forEach(([modelName, sessions]) => {
+      // Skip if filtering by model and this isn't the selected model
+      if (selectedModel !== "all" && modelName !== selectedModel) return;
+      
+      sessions.forEach((item, idx) => {
+        visibleCount++;
+        const id = `${modelName}_${item.conversation_id}`;
+        const key = id;
+        const savedRatings = JSON.parse(localStorage.getItem("savedRatings") || "{}");
+        const saved = savedRatings[key] || { ratings: {}, comment: "" };
+
+        // --- rating widgets ---
+        const ratingsHTML = metrics.map((metricLabel, i) => {
+          const metricId = metricsIds[i];
+          return `
+            <label>${metricLabel}
+              <select id="rating_${metricId}_${id}">
+                <option value="">-- Select --</option>
+                ${[1,2,3,4,5].map(v => `
+                  <option value="${v}" ${saved.ratings[metricId]==v ? "selected":""}>
+                    ${v}
+                  </option>`).join("")}
+              </select>
+            </label><br>`;
+        }).join("\n");
+
+        // --- conversation text ---
+        const convHTML = item.conversation.map(line => {
+          let messageClass = '';
+          let speakerLabel = '';
+          let content = line;
+          let miCode = '';
+          
+          // Extract MI Code if present
+          if (line.includes('MI_Code:')) {
+            const parts = line.split('MI_Code:');
+            content = parts[0].trim();
+            miCode = parts[1].trim();
+          }
+          
+          // Determine speaker and apply appropriate styling
+          if (content.startsWith('Therapist:')) {
+            messageClass = 'message therapist';
+            speakerLabel = 'Therapist';
+            content = content.replace('Therapist:', '').trim();
+          } else if (content.startsWith('Client:')) {
+            messageClass = 'message client';
+            speakerLabel = 'Client';
+            content = content.replace('Client:', '').trim();
+          }
+          
+          // Create the message HTML
+          return `
+          <div class="${messageClass}">
+            <span class="speaker-label">${speakerLabel}</span>
+            <div class="message-content">${content}</div>
+            ${miCode ? `<div class="mi-code">MI Code: ${miCode}</div>` : ''}
+          </div>`;
+        }).join('');
+        
+        // --- build block ---
+        const block = document.createElement("div");
+        block.className = "block";
+        block.innerHTML = `
+          <h3>${modelName} – ${item.conversation_id}</h3>
+          ${item.background_story ? `<p><em>Background:</em> ${item.background_story}</p>` : ""}
+          <p><strong>Conversation:</strong></p>
+          <div class="conversation">${convHTML}</div>
+          <p><strong>Quality Rating</strong></p>
+          ${ratingsHTML}
+          <label>Comments (optional):</label>
+          <textarea id="comment_${id}" placeholder="Optional notes...">${saved.comment || ""}</textarea>
+        `;
+
+        area.appendChild(block);
+
+        // attach listeners after DOM insert
+        setTimeout(() => {
+          metricsIds.forEach(metricId => {
+            const sel = document.getElementById(`rating_${metricId}_${id}`);
+            if (sel) sel.addEventListener("change",
+              () => saveToLocalStorage(key, metricId, sel.value));
+          });
+          const commentBox = document.getElementById(`comment_${id}`);
+          if (commentBox) commentBox.addEventListener("input",
+            () => saveToLocalStorage(key, "comment", commentBox.value.trim()));
+        }, 0);
+      });
+    });
+
+    // Update conversation count display
+    document.getElementById("conversationCount").textContent = `Showing ${visibleCount} conversation${visibleCount !== 1 ? 's' : ''}`;
+    
+    document.getElementById("downloadBtn").style.display = "inline-block";
+  }
+  
+  function saveToLocalStorage(key, field, value) {
+    const all = JSON.parse(localStorage.getItem("savedRatings") || "{}");
+    if (!all[key]) all[key] = { ratings: {}, comment: "" };
+    if (field === "comment") all[key].comment = value;
+    else all[key].ratings[field] = value;
+    localStorage.setItem("savedRatings", JSON.stringify(all));
+  }
+  
+  document.getElementById("downloadBtn").addEventListener("click", () => {
+    annotations = [];
+    Object.entries(data).forEach(([modelName, sessions]) => {
+      sessions.forEach((item, index) => {
+        const key = `${modelName}_${item.conversation_id}`;
+        const saved = JSON.parse(localStorage.getItem("savedRatings") || "{}")[key] || { ratings: {}, comment: "" };
+
+        annotations.push({
+          conversation_id: item.conversation_id,
+          model: modelName,
+          coherence: saved.ratings.coherence || "",
+          depth: saved.ratings.depth || "",
+          progress: saved.ratings.progress || "",
+          naturalness: saved.ratings.naturalness || "",
+          empathy: saved.ratings.empathy || "",
+          mi_alignment_therapist: saved.ratings.mi_alignment_therapist || "",
+          mi_alignment_client: saved.ratings.mi_alignment_client || "",
+          comment: (saved.comment || "").replace(/\n/g, " ")
+        });
+      });
+    });
+  
+    const csv = generateCSV(annotations);
+    downloadCSV(csv, "annotations.csv");
+  });
+  
+  function generateCSV(data) {
+    const headers = [
+      "conversation_id", "model",
+      "coherence", "depth", "progress",
+      "naturalness", "empathy", 
+      "mi_alignment_therapist", "mi_alignment_client",
+      "comment"
+    ];
+    const rows = data.map(row => headers.map(h => `"${(row[h] || "").replace(/"/g, '""')}"`).join(","));
+    return [headers.join(",")].concat(rows).join("\n");
+  }
+  
+  function downloadCSV(csv, filename) {
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+  </script>
+
+</body>
+</html>

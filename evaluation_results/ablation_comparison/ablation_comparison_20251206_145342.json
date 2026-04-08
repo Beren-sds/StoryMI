@@ -1,0 +1,253 @@
+{
+  "baseline": "full",
+  "automatic_metrics_comparison": {
+    "ablation_no_story": {
+      "entropy": {
+        "full": 0.907,
+        "ablation": 0.9086,
+        "difference": 0.0016,
+        "difference_percent": 0.18
+      },
+      "distinct_2": {
+        "full": 0.8428,
+        "ablation": 0.847,
+        "difference": 0.0042,
+        "difference_percent": 0.5
+      },
+      "distinct_3": {
+        "full": 0.9386,
+        "ablation": 0.9416,
+        "difference": 0.003,
+        "difference_percent": 0.32
+      },
+      "self_bleu": {
+        "full": 0.1665,
+        "ablation": 0.1539,
+        "difference": -0.0126,
+        "difference_percent": -7.57
+      },
+      "perplexity": {
+        "full": 12.2015,
+        "ablation": 12.7734,
+        "difference": 0.5719,
+        "difference_percent": 4.69
+      },
+      "avg_length": {
+        "full": 39.6124,
+        "ablation": 32.5875,
+        "difference": -7.0249,
+        "difference_percent": -17.73
+      },
+      "total_turns": {
+        "full": 17.19,
+        "ablation": 17.259,
+        "difference": 0.069,
+        "difference_percent": 0.4
+      }
+    },
+    "ablation_no_mi_coding": {
+      "entropy": {
+        "full": 0.907,
+        "ablation": 0.9038,
+        "difference": -0.0032,
+        "difference_percent": -0.35
+      },
+      "distinct_2": {
+        "full": 0.8428,
+        "ablation": 0.8448,
+        "difference": 0.002,
+        "difference_percent": 0.24
+      },
+      "distinct_3": {
+        "full": 0.9386,
+        "ablation": 0.9451,
+        "difference": 0.0065,
+        "difference_percent": 0.69
+      },
+      "self_bleu": {
+        "full": 0.1665,
+        "ablation": 0.1755,
+        "difference": 0.009,
+        "difference_percent": 5.41
+      },
+      "perplexity": {
+        "full": 12.2015,
+        "ablation": 12.1363,
+        "difference": -0.0652,
+        "difference_percent": -0.53
+      },
+      "avg_length": {
+        "full": 39.6124,
+        "ablation": 46.6781,
+        "difference": 7.0657,
+        "difference_percent": 17.84
+      },
+      "total_turns": {
+        "full": 17.19,
+        "ablation": 16.654,
+        "difference": -0.536,
+        "difference_percent": -3.12
+      }
+    },
+    "ablation_no_mi_coding_no_story": {
+      "entropy": {
+        "full": 0.907,
+        "ablation": 0.9079,
+        "difference": 0.0009,
+        "difference_percent": 0.1
+      },
+      "distinct_2": {
+        "full": 0.8428,
+        "ablation": 0.8554,
+        "difference": 0.0126,
+        "difference_percent": 1.5
+      },
+      "distinct_3": {
+        "full": 0.9386,
+        "ablation": 0.9504,
+        "difference": 0.0118,
+        "difference_percent": 1.26
+      },
+      "self_bleu": {
+        "full": 0.1665,
+        "ablation": 0.1502,
+        "difference": -0.0163,
+        "difference_percent": -9.79
+      },
+      "perplexity": {
+        "full": 12.2015,
+        "ablation": 12.7559,
+        "difference": 0.5544,
+        "difference_percent": 4.54
+      },
+      "avg_length": {
+        "full": 39.6124,
+        "ablation": 37.6913,
+        "difference": -1.9211,
+        "difference_percent": -4.85
+      },
+      "total_turns": {
+        "full": 17.19,
+        "ablation": 16.655,
+        "difference": -0.535,
+        "difference_percent": -3.11
+      }
+    }
+  },
+  "mi_metrics_comparison": {
+    "ablation_no_story": {
+      "mi_code_entropy": {
+        "full": 0.7997,
+        "ablation": 0.7504,
+        "difference": -0.0493,
+        "difference_percent": -6.16
+      },
+      "mi_code_balance_score": {
+        "full": 0.8086,
+        "ablation": 0.788,
+        "difference": -0.0206,
+        "difference_percent": -2.55
+      },
+      "reflection_depth": {
+        "full": 0.7248,
+        "ablation": 0.7384,
+        "difference": 0.0136,
+        "difference_percent": 1.88
+      },
+      "complex_reflection_ratio": {
+        "full": 0.9829,
+        "ablation": 0.9856,
+        "difference": 0.0027,
+        "difference_percent": 0.27
+      },
+      "question_openness_ratio": {
+        "full": 0.069,
+        "ablation": 0.047,
+        "difference": -0.022,
+        "difference_percent": -31.88
+      },
+      "reflection_to_question_ratio": {
+        "full": 3.6184,
+        "ablation": 4.7693,
+        "difference": 1.1509,
+        "difference_percent": 31.81
+      }
+    },
+    "ablation_no_mi_coding": {
+      "mi_code_entropy": {
+        "full": 0.7997,
+        "ablation": 0.6988,
+        "difference": -0.1009,
+        "difference_percent": -12.62
+      },
+      "mi_code_balance_score": {
+        "full": 0.8086,
+        "ablation": 0.6415,
+        "difference": -0.1671,
+        "difference_percent": -20.67
+      },
+      "reflection_depth": {
+        "full": 0.7248,
+        "ablation": 0.6846,
+        "difference": -0.0402,
+        "difference_percent": -5.55
+      },
+      "complex_reflection_ratio": {
+        "full": 0.9829,
+        "ablation": 0.905,
+        "difference": -0.0779,
+        "difference_percent": -7.93
+      },
+      "question_openness_ratio": {
+        "full": 0.069,
+        "ablation": 0.066,
+        "difference": -0.003,
+        "difference_percent": -4.35
+      },
+      "reflection_to_question_ratio": {
+        "full": 3.6184,
+        "ablation": 5.2789,
+        "difference": 1.6605,
+        "difference_percent": 45.89
+      }
+    },
+    "ablation_no_mi_coding_no_story": {
+      "mi_code_entropy": {
+        "full": 0.7997,
+        "ablation": 0.7008,
+        "difference": -0.0989,
+        "difference_percent": -12.37
+      },
+      "mi_code_balance_score": {
+        "full": 0.8086,
+        "ablation": 0.6139,
+        "difference": -0.1947,
+        "difference_percent": -24.08
+      },
+      "reflection_depth": {
+        "full": 0.7248,
+        "ablation": 0.6342,
+        "difference": -0.0906,
+        "difference_percent": -12.5
+      },
+      "complex_reflection_ratio": {
+        "full": 0.9829,
+        "ablation": 0.8232,
+        "difference": -0.1597,
+        "difference_percent": -16.25
+      },
+      "question_openness_ratio": {
+        "full": 0.069,
+        "ablation": 0.232,
+        "difference": 0.163,
+        "difference_percent": 236.23
+      },
+      "reflection_to_question_ratio": {
+        "full": 3.6184,
+        "ablation": 3.9398,
+        "difference": 0.3214,
+        "difference_percent": 8.88
+      }
+    }
+  }
+}

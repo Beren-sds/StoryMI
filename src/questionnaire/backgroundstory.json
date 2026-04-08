@@ -1,0 +1,13 @@
+// Based on the following questionnaire screening results, write a first-person narrative telling a story (less than 200 words).
+        
+//         Requirements:
+//         - Choose one primary symptom (the one with the most severe level in the questionnaire results) and explore it in depth. 
+//           Describe how they experience this symptom in daily life, showing how it affects their life, relationships, and sense of self.
+//         - Do not provide general summaries or overviews. Focus on one specific moment or scene, include concrete life details and settings, 
+//           making the story feel realistic and grounded. Avoid excessive emotional dramatization.
+//         - Use a natural, genuine, and honest tone, as if the person is sharing their experience in a therapy session. Avoid using flowery or exaggerated language and expressions.
+
+        
+//         The questionnaire screening results is as follows: {results}
+//         The user's explanations of the answers are as follows: {user_response}
+//         Only return the story without any additional text or explanation.
